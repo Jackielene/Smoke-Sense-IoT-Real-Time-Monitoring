@@ -1,0 +1,115 @@
+/* General Styles */
+body {
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  padding: 90px 15px;
+  transition: padding-left 0.3s ease;
+}
+
+.card {
+  margin-bottom: 15px;
+  border-radius: 0;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .1);
+}
+
+/* Header Styling */
+.header-top {
+  background-color: #006994; /* Change header background color */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 10px 15px;
+  transition: padding 0.3s ease;
+}
+
+/* Sidebar Styles for Large Screens */
+@media(min-width: 992px) {
+  #wrapper {
+    margin-left: 200px; /* Sidebar width */
+    padding: 90px 15px 15px; /* Add space for header */
+  }
+
+  /* Sidebar styling */
+  .navbar-nav.side-nav {
+    background: #006994; /* Sidebar background color */
+    box-shadow: 2px 1px 2px rgba(0, 0, 0, .1);
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    overflow-y: auto;
+    padding-top: 20px;
+    bottom: 0;
+    overflow-x: hidden;
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Ensure items are stacked vertically */
+  }
+
+  /* Sidebar item styling */
+  .navbar-nav.side-nav .nav-item {
+    margin: 10px 0; /* Add space between the items */
+  }
+
+  .navbar-nav.side-nav .nav-link {
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .navbar-nav.side-nav .nav-link:hover {
+    background-color: #00577b;
+  }
+
+  /* Align header with the sidebar */
+  .header-top {
+    padding-left: 200px; /* Align header with sidebar */
+  }
+}
+
+/* Mobile responsive design for smaller screens */
+@media (max-width: 991px) {
+  #wrapper {
+    padding-top: 56px; /* Adjust for fixed header */
+  }
+
+  .navbar-nav.side-nav {
+    position: fixed;
+    top: 56px;
+    left: -200px; /* Initially hidden off-screen */
+    width: 200px;
+    background-color: #006994;
+    box-shadow: 2px 1px 2px rgba(0, 0, 0, .1);
+    height: 100vh;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Ensure items are stacked vertically */
+  }
+
+  /* Hamburger menu and sidebar toggle */
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-toggler-icon {
+    background-color: #fff;
+  }
+
+  /* When sidebar is active, slide it in */
+  .navbar-nav.side-nav.active {
+    left: 0;
+  }
+
+  /* Header padding adjustment when sidebar is visible */
+  .header-top {
+    padding-left: 0; /* Remove padding */
+  }
+}
